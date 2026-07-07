@@ -52,7 +52,6 @@ public class ElasticCollision extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(frameVisible);
 
-        // Physics - Conversation of Momentum
         v1f = ((m1 * v1i + m2 * v2i) - m2 * v2f) / m1;
         v2f = ((m2 * v2i + m1 * v1i) - m1 * v1f) / m2;
 
