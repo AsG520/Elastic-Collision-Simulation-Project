@@ -10,27 +10,37 @@ import java.awt.event.ActionEvent;
 public class ElasticCollision extends JPanel {
     static double v1i = -5.0;
     static double v2i = 5.0;
+    static double v3i = 5.0;
 
     static int fw = 500;
     static int fh = 500;
 
-    static double v2f = -3.0;
     static double v1f;
+    static double v2f = -3.0;
+    static double v1fB3;
+    static double v2fB3;
+    static double v3fB1;
+    static double v3fB2;
 
     static int dx1 = 425;
     static int dx2 = 15;
+    static int dx3 = 430;
 
     static int dy1 = 415;
     static int dy2 = 415;
+    static int dy3 = 415;
 
     static int dw1 = 45;
     static int dw2 = 45;
+    static int dw3 = 45;
 
     static int dh1 = 45;
     static int dh2 = 45;
+    static int dh3 = 45;
 
     static int m1 = 4;
     static int m2 = 5;
+    static int m3 = 6;
 
     static Timer timer;
     static JFrame frame;
@@ -55,15 +65,23 @@ public class ElasticCollision extends JPanel {
         v1f = ((m1 * v1i + m2 * v2i) - m2 * v2f) / m1;
         v2f = ((m2 * v2i + m1 * v1i) - m1 * v1f) / m2;
 
+        v3fB1 = ((m1 * v1i + m3 * v3i) - m1 * v1f) / m3;
+        v3fB2 = ((m2 * v2i + m3 * v3i) - m2 * v2f) / m3;
+
+        v1fB3 = ((m3 * v3i + m1 * v1i) - m3 * v3fB1) / m1;
+        v2fB3 = ((m3 * v3i + m2 * v2i) - m3 * v3fB2) / m2;
+
         timer = new Timer(10, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dx1 += v1i;
                 dx2 += v2i;
+                dx3 += v3i;
 
                 panel.repaint();
 
                 collision1();
                 collision2();
+                collision3();
             }
         });
         timer.start();
@@ -89,6 +107,16 @@ public class ElasticCollision extends JPanel {
         }
     }
 
+    public static void collision3() {
+        if (dx3 >= 440) {
+            v3i = -v3i;
+        }
+
+        if (dx3 <= 0) {
+            v3i = -v3i;
+        }
+    }
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         /*
@@ -98,17 +126,41 @@ public class ElasticCollision extends JPanel {
         // Object 1 - Blue
         g.setColor(new Color(0, 0, 255));
         g.fillOval(dx1, dy1, dw1, dh1);
+        g.drawOval(dx1, dy1, dw1, dh1);
 
         // Object 2 - Red
         g.setColor(new Color(255, 0, 0));
         g.fillOval(dx2, dy2, dw2, dh2);
+        g.drawOval(dx2, dy2, dw2, dh2);
+
+        // Object 3 - White
+        g.setColor(new Color(255, 255, 255));
+        g.drawOval(dx3, dy3, dw3, dh3);
+        g.fillOval(dx3, dy3, dw3, dh3);
 
         Rectangle b1 = new Rectangle(dx1, dy1, dw1, dh1);
         Rectangle b2 = new Rectangle(dx2, dy2, dw2, dh2);
+        Rectangle b3 = new Rectangle(dx3, dy3, dw3, dh3);
 
         if (b1.intersects(b2)) {
             v1i = v1f;
             v2i = v2f;
+        }
+
+        if (b1.intersects(b3)) {
+            v3i = v3fB1;
+        }
+
+        if (b2.intersects(b3)) {
+            v3i = v3fB2;
+        }
+
+        if (b3.intersects(b1)) {
+            v1i = v1fB3;
+        }
+
+        if (b3.intersects(b2)) {
+            v2i = v2fB3;
         }
     }
 }
