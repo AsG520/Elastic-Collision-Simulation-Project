@@ -16,7 +16,7 @@ public class ElasticCollision extends JPanel {
     static int fh = 500;
 
     static double v1f;
-    static double v2f = -3.0;
+    static double v2f = -2.0;
     static double v1fB3;
     static double v2fB3;
     static double v3fB1;
@@ -82,6 +82,11 @@ public class ElasticCollision extends JPanel {
                 collision1();
                 collision2();
                 collision3();
+
+                System.out.println("Velocity Table of Values");
+                System.out.println("Velocity of Blue Ball: " + v1i);
+                System.out.println("Velocity of Red Ball: " + v2i);
+                System.out.println("Velocity of White Ball: " + v3i + "\n");
             }
         });
         timer.start();
