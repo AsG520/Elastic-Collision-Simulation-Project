@@ -8,9 +8,9 @@ import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 
 public class ElasticCollision extends JPanel {
-    static double v1i = -5.0;
-    static double v2i = 5.0;
-    static double v3i = 5.0;
+    static double v1i = -3.0;
+    static double v2i = 3.0;
+    static double v3i = 3.0;
 
     static int fw = 500;
     static int fh = 500;
@@ -24,7 +24,7 @@ public class ElasticCollision extends JPanel {
 
     static int dx1 = 425;
     static int dx2 = 15;
-    static int dx3 = 430;
+    static int dx3 = 230;
 
     static int dy1 = 415;
     static int dy2 = 415;
@@ -88,11 +88,11 @@ public class ElasticCollision extends JPanel {
     }
 
     public static void collision1() {
-        if (dx1 <= 0) {
+        if (dx1 >= 440) {
             v1i = -v1i;
         }
 
-        if (dx1 >= 440) {
+        if (dx1 <= 0) {
             v1i = -v1i;
         }
     }
@@ -135,8 +135,8 @@ public class ElasticCollision extends JPanel {
 
         // Object 3 - White
         g.setColor(new Color(255, 255, 255));
-        g.drawOval(dx3, dy3, dw3, dh3);
         g.fillOval(dx3, dy3, dw3, dh3);
+        g.drawOval(dx3, dy3, dw3, dh3);
 
         Rectangle b1 = new Rectangle(dx1, dy1, dw1, dh1);
         Rectangle b2 = new Rectangle(dx2, dy2, dw2, dh2);
