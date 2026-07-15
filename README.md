@@ -3,6 +3,8 @@
 Features in Simulation
 
 Physics Concepts in Simulation
+- Conversation of Momentum (p): m1i + m2i = m1f + m2f.
+- Elastic Collisions
 
 How it Works
 
