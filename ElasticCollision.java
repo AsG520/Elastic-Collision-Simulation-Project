@@ -93,10 +93,10 @@ public class ElasticCollision extends JPanel {
                 collision2();
                 collision3();
 
-                System.out.println("Velocity Table of Values");
-                System.out.println("Velocity of Blue Ball: " + v1i);
-                System.out.println("Velocity of Red Ball: " + v2i);
-                System.out.println("Velocity of White Ball: " + v3i + "\n");
+                System.out.println("Velocity Table of Value");
+                System.out.println("Velocity of Blue Ball: " + Math.abs(v1i));
+                System.out.println("Velocity of Red Ball: " + Math.abs(v2i));
+                System.out.println("Velocity of White Ball: " + Math.abs(v3i) + "\n");
             }
         });
         timer.start();
