@@ -5,6 +5,12 @@ Visual of Simulation
 <img width="567" height="577" alt="image" src="https://github.com/user-attachments/assets/e81a60e9-f164-4cce-bfbc-deefc8c79e37" />
 
 Features in Simulation
+- Real time animation using a timer.
+- 2D representation of collisions between balls.
+- Final velocity is determined from derived momentum equation.
+- Includes live velocity tracker from motion.
+- Implementation of wall collision detection. 
+- Usage of rectangle object are enhanced for contact between balls.
 
 Physics Concepts in Simulation
 - Conversation of Momentum (p): m1i + m2i = m1f + m2f.
