@@ -17,6 +17,13 @@ Physics Concepts in Simulation
 - Elastic Collisions.
 
 How it Works
+- Initializes frame, final velocity, horizontal position, ball height properties for simulation modelling.
+- Velocities are in same magnitude, but opposite in direction when making contact with the walls.
+- Has animation with the use of Java Timer.
+- Includes paint method that draws the balls in their updated positions.
+- Velocity table of values is being displayed by classic print lines.
+- Conditionals are implemented to check if balls are intersecting one another and used to change the value of the velocity using the derived momentum equations.
+- Position of the balls are being updated from constant velocity variables declared.
 
 Requirements
 - Java (JDK or higher).
