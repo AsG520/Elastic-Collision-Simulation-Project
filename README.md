@@ -32,3 +32,8 @@
 1) Copy the code into a Java file named "ElasticCollision.java".
 2) Compile the program: "javac ElasticCollision.java".
 3) Run the program: "java ElasticCollision".
+
+## Video Details for Simulation
+I plan to make a YouTube video that will showcase the history behind elastic collisions, more deep explanation of how I programmed the project, and share general physics knowledge relating to the topic. This video will help give me a reflection on what I learned and for others who are interested in this particular subject and simulation :D.
+
+Video Link of Simulating a Elastic Collision in Java - [Coming Soon!].
